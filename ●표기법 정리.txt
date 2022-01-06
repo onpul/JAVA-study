@@ -76,7 +76,7 @@
    int        n       nIndex
    short      n       nNum
    char       c       cFirstInitial
-   String     s(str)  sCustomername(strCustomerName)
+   String     s(str)  sCustomerName(strCustomerName)
 
 ※ 실제 자바 프로젝트에서...
    클래스는 파스칼 표기법으로
