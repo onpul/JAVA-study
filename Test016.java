@@ -23,7 +23,7 @@ import java.io.IOException;
 
 public class Test016
 {
-	public static void main(String[] args)
+	public static void main(String[] args) throws IOException
 	{
 		// 내가 쓴 풀이(에러남)
 		/*
@@ -84,7 +84,7 @@ public class Test016
 		System.out.print("수학 점수 입력 : ");
 
 		// 사용자가 입력한 값(외부 데이터)을 정수 형태로 변환한 후 변수에 담아내기
-		nMat = Integer.ParseInt(br.readLine());
+		nMat = Integer.parseInt(br.readLine());
 
 		// 각 점수 변수에 담겨있는 데이터(사용자가 입력한 데이터)
 		// 종합하여 총점을 산출하고 
