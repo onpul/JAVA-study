@@ -52,7 +52,7 @@ public class Test017
 
 		// 주요 변수 선언
 		char ch; // 입력받은 문자를 담을 변수
-		int n; // 입력받은 정수를 담을 변수
+		//int n; // 입력받은 정수를 담을 변수
 
 		// 추가 변수 선언
 		char temp;
@@ -76,7 +76,7 @@ public class Test017
 		// 9 → 57
 
 		// 입력받은 n을 48만큼 감소시켜라
-		n -= 48;
+	    //n -= 48;
 
 		// 결과 출력
 		System.out.println();
