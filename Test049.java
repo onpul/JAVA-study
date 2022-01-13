@@ -65,6 +65,7 @@ public class Test049
 				System.out.println("판별 불가 데이터");
 				return;
 			}
+			n++;
 		}
 		System.out.println("정수의 합: " + sum);
 		System.out.println("짝수의 합: " + even);
