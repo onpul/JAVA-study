@@ -12,11 +12,11 @@
 // 실행 예)
 /*
     
-*********
- *******
-  *****
-   ***
-    *
+*********  --> 공백0 / 별9 == 2*4+1
+ *******   --> 공백1 / 별7 == 2*3+1
+  *****    --> 공백2
+   ***     --> 공백3
+    *      --> 공백4   
 
 */
 
@@ -24,6 +24,17 @@ public class Test065
 {
 	public static void main(String[] args)
 	{
-		
+		for (int i=4; i>=0; i--) // 총 5줄
+		{
+			for (int j=0; j<=i; j++)
+			{
+				System.out.print(" ");
+			}
+			for (int k=9; k<=9; k--)
+			{
+				System.out.print("*");
+			}
+			System.out.println();
+		}	
 	}
 }

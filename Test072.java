@@ -40,8 +40,60 @@ class 직사각형
 */
 //-------------------------------------------------------------------------------------------------
 
-public class Rect // 직사각형 클래스 설계
+import java.util.Scanner; // 두 개의 클래스 --> 두 개 모두의 위에 있어야 함
+
+class Rect // 직사각형 클래스 설계
 {
+	// 데이터(속성, 상태)  → 변수
+	int w, h; // 가로, 세로
+	
+	// 기능(동작, 행위)    → 메소드
+	void input() // 가로세로 입력()
+	{	
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("가로 입력 : ");
+		w = sc.nextInt();
+
+		System.out.print("세로 입력 : ");
+		h = sc.nextInt();
+	}
+
+	int calLength() // 둘레 계산() → (가로+세로)*2
+	{	
+		
+		int result;
+		result = (w+h)*2;
+		return result;
+		
+		// return (w+h)*2; // <-- 이것도 가능
+	}
+
+	int calArea() // 넓이 계산() → 가로*세로
+	{	
+		// 주요 변수 선언
+		int result;
+
+		// 연산 및 처리 → 선언한 변수들에 값 담아내기
+		result = w*h;
+
+		// 최종 결과 반환
+		return result;
+
+		// return w*h; // <-- 이것도 가능~!
+	}
+
+	void print(int a, int l) // 결과 출력() → 넓이와 둘레 전달
+	{
+		// 가로 : 10
+		// 세로 : 20
+		// 넓이 : XXX
+		// 둘레 : XXX
+		System.out.println("가로 : " + w);
+		System.out.println("세로 : " + h);
+		System.out.println("넓이 : " + a);
+		System.out.println("둘레 : " + l);
+	}
 }
 
 // ※ 하나의 자바 파일(.java)에 여러 개의 클래스(class)를 설계할 수 있다!!!
@@ -56,6 +108,29 @@ public class Test072
 {
 	public static void main(String[] args)
 	{
+		// Rect 클래스 기반의 인스턴스 생성
+		Rect ob = new Rect();
 		
+		// 입력 메소드 호출
+		ob.input();
+
+		// 넓이 연산 메소드 호출
+		int area = ob.calArea();
+
+		// 둘레 연산 메소드 호출
+		int length = ob.calLength(); 
+
+		// 출력 메소드 호출
+		ob.print(area, length);
 	}
 }
+// 실행 결과
+/*
+가로 입력 : 20
+세로 입력 : 30
+가로 : 20
+세로 : 30
+넓이 : 600
+둘레 : 100
+계속하려면 아무 키나 누르십시오 . . .
+*/
