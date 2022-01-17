@@ -55,5 +55,39 @@ public class Test076
 		//   이와 동시에 선택의 여지 없이 생성자 호출이 이루어진다.
 		//                                -----------
 		//                                NumberTest()
+
+		/*
+		NumberTest nt1 = new NumberTest
+		                         +
+							 NumberTest()
+		*/
+
+		//nt1.NumberTest();
+		// 에러 발생(컴파일 에러)
+		// Test076.java:65: error: cannot find symbol
+
+		System.out.println(nt1.getNum());
+		//--==>> 10
+
+		nt1.num = 100;
+		System.out.println(nt1.getNum());
+        //--==> 100
+
+		NumberTest nt2 = new NumberTest();
+		//--==> 사용자 정의 생성자 호출~!!!
+
+		int testResult = nt2.getNum();
+		System.out.println(testResult);
+		//--==> 10
 	}
+
 }
+// 실행결과
+/*
+사용자 정의 생성자 호출~!!!
+10
+100
+사용자 정의 생성자 호출~!!!
+10
+계속하려면 아무 키나 누르십시오 . . .
+*/
