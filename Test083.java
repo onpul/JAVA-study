@@ -19,6 +19,7 @@ public class Test083
 	{
 		// 영문 알파벳 대문자 배열 구성
 		// 방법①
+		/*
 		char[] arr1;
 		arr1 = new char[26];
 
@@ -64,8 +65,10 @@ public class Test083
 			System.out.print(arr2[i]+" ");
 		}
 		System.out.println();
+		*/
 
 		// 방법③***********
+		/*
 		char[] arr3 = new char[26];
 		for (int i=0, ch=65; i<arr3.length; i++, ch++) // 0 ~ 25
 		{
@@ -74,6 +77,18 @@ public class Test083
 		for (int i=0; i<arr3.length; i++)
 		{
 			System.out.print(arr2[i]+" ");
+		}
+		System.out.println();
+		*/
+
+		char[] arr3 = new char[26];
+		for (int i=0, ch=65; i<arr3.length; i++, ch++) // 0 ~ 25
+		{
+			arr3[i] = (char)ch;
+		}
+		for (int i=0; i<arr3.length; i++)
+		{
+			System.out.print(arr3[i]+" ");
 		}
 		System.out.println();
 	}
