@@ -10,16 +10,16 @@
 
 // 실행 예)
 /*
-   A   B   C   D   E
-   F   G   H   I   J
-   K   L   M   N   O
-   P   Q   R   S   T
-   U   V   W   X   Y
+   A
+   B  C
+   D  E  F
+   G  H  I  J
+   K  L  M  N  O
 
 계속하려면 . . .
 */
 //-------------------------------------------------------------------------------------------------
-public class Test094
+public class Test095
 {
 	public static void main(String[] args)
 	{
