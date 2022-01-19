@@ -22,8 +22,37 @@ public class Test099
 	{
 		int[] nums = {10, 20, 30, 40, 50}; //-- 배열 원본
 
+		int[] copys1 = nums; //(주소값 복사)
+        int[] copys2 = copyArray(nums);
 		
+		int[] copys3 = (int[])nums.clone;
+		int[] copys1Array(nums); // 같은 의미의 배열 복사 수행
+		                      // (사용자 정의 메소드 호출);
+		int[] copys2Array(nems);
 	}
+	num[1] = 2;
+
+	// 결과 확인
+	for (int i=0; i<nums.length; i++)
+	{
+		System.out.printf("%4d%", nums[i]);
+	}
+	System.out.println();
+	for (int i=0; i<copys1.length; i++)
+	{
+		System.out.printf("%4d%", copys1[i]);
+	}
+	System.out.println();
+	for (int i=0; i<copys2.length; i++)
+	{
+		System.out.printf("%4d%", copys2[i]);
+	}
+	System.out.println();
+	for (int i=0; i<copys23.length; i++)
+	{
+		System.out.printf("%4d%", copys3[i]);
+	}
+	System.out.println();
 
 	// 매개변수로 int 배열 타입을 넘겨받아
 	// 이를 복사한 후
@@ -31,6 +60,19 @@ public class Test099
 	// 기능을 가진 메소드 정의
 	public static int[] copyArray(int[] os)
 	{
-		
+		//매개변수로 넘겨받은 배열(os)
+		//즉, 원본 배열 만큼의 배열방(메모리 공간)을 확보한
+		//복사할 배열방 생성
+		int[] temp = new int[os.length];
+	
+		//각각의 원본 배열(os)에 담겨있는 요소들을 복사 배열(temp)에 담아내기
+		// temp = os;
+		for (int i=0; i<os.lenght; i++)
+		{
+			temp[i] = os[i];
+		}
+
+		//복사한 배열(temp) 반환
+		return temp;
 	}
 }
