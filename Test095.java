@@ -23,6 +23,40 @@ public class Test095
 {
 	public static void main(String[] args)
 	{
+		// 배열 및 변수 선언
+		char[][] arr = new char[5][5];
+		char ch = 'A';
 		
+		// 배열 채우기 --> 별 찍기 생각하자
+		for (int i=0; i<arr.length; i++)
+		{
+			for (int j=0; j<=i; j++)
+			{
+				arr[i][j] = ch;
+				ch++;
+			}
+		}
+
+		// 출력
+		for (int i=0; i<arr.length; i++)
+		{
+			for (int j=0; j<arr[i].length; j++)
+			{
+				System.out.printf("%3c", arr[i][j]);
+			}
+			System.out.println();
+		}
+		System.out.println();
 	}
 }
+//-------------------------------------------------------------------------------------------------
+//실행 결과
+/*
+  A
+  B  C
+  D  E  F
+  G  H  I  J
+  K  L  M  N  O
+
+계속하려면 아무 키나 누르십시오 . . .
+*/
