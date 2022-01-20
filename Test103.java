@@ -133,7 +133,7 @@ class Sungjuk
 	public void print()
 	{
 		// 석차 산출 메소드 호출
-		//ranking();
+		ranking();
 
 		// 개행
 		System.out.println();
@@ -152,14 +152,40 @@ class Sungjuk
 			System.out.printf("%5d", rec[i].tot);
 			System.out.printf("%8.2f", rec[i].avg);
 
+			// check~!!!
+			// 석차 출력 구문 추가~!!!
+			System.out.printf("%5d", rec[i].rank);
+
 			// 개행
 			System.out.println();
 		}
 	}
 
 	// + ④ 석차 산출 메소드 추가
-	private ranking()
+	//   - 석차 산출 과정에서 연산에 필요한 데이터가 이미 존재하는 상황 → 매개변수 없음 
+	//   - Record 배열의 rank 속성 초기화 기능 수행 → 반환 자료형 void
+	//   - 클래스 내부에서 활용할 메소드로 정의 → 접근제어 지시자 private
+	private void ranking()
 	{
+		// 모든 학생들의 등수(석차, rank)를 1로 초기화
+		for (int i=0; i<inwon; i++)
+			rec[i].rank = 1;
+
+		// 등수 산출                                          
+		for (int i=0; i<inwon-1; i++)               //-- 웅 → 비교기준 →  0    1    2 
+		{
+			for (int j=i+1; j<inwon; j++)           //-- 쑝 → 비교대상 →   123   23   3
+			{
+				if (rec[i].avg > rec[j].avg)        //-- 비교기준의 평균이 비교대상의 평균보다 크다면
+				{
+					rec[j].rank++;                  //-- 비교대상의 rank를 1만큼 증가
+				}
+				else if (rec[j].avg > rec[i].avg)   //-- 비교대상의 평균이 비교기준의 평균보다 크다면
+				{
+					rec[i].rank++;                  // 비교기준의 rank를 1만큼 증가
+				}
+			}
+		}
 	}
 }
 
@@ -173,3 +199,26 @@ public class Test103
 		sj.print();
 	}
 }
+// 실행 결과
+/*
+인원 수 입력(1~100) : -1
+인원 수 입력(1~100) : 1000
+인원 수 입력(1~100) : 3
+1번째 학생의 이름 입력 : 최문정
+국어 점수 : 90
+영어 점수 : 80
+수학 점수 : 70
+2번째 학생의 이름 입력 : 홍은혜
+국어 점수 : 10
+영어 점수 : 20
+수학 점수 : 30
+3번째 학생의 이름 입력 : 정은정
+국어 점수 : 70
+영어 점수 : 50
+수학 점수 : 30
+
+  최문정  90  80  70  240   80.00    1
+  홍은혜  10  20  30   60   20.00    3
+  정은정  70  50  30  150   50.00    2
+계속하려면 아무 키나 누르십시오 . . .
+*/
