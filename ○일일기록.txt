@@ -283,3 +283,8 @@ private       O             X               X               X
 default       O             O               X               X
 protected     O             O               O               X
 public        O             O               O               O
+
+
+---20220120목---
+
+Test103 input메소드 주석 다 못적었음 ㅠㅠ
