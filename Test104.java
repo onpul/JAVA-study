@@ -27,11 +27,11 @@ import java.util.Random;
 
 class RpsGame
 {
+	// 내 풀이
 	int rps;
 	
 	String userhand;
 	String comhand;
-	String result;
 
 	// 사용자가 1~3 중 입력 메소드
 	void input() 
@@ -80,6 +80,8 @@ class RpsGame
 	// 연산 메소드
 	String exec(int nan)
 	{
+		String result="얍";
+
 		// 가위바위보 승부
 		if (rps==nan)
 		{
@@ -115,14 +117,14 @@ class RpsGame
 		return result;
 	}
 
-	void print(int nan)
+	void print(int nan, String result)
 	{
 		System.out.printf("%n- 유저   : %s%n", userhand);
 		System.out.printf("- 컴퓨터 : %s%n", comhand);
 		System.out.println();
 		System.out.printf(">> 승부 최종 결과 : %s%n", result);// >> 승부 최종 결과 : 컴퓨터가 이겼습니다~!!!
 	}
-
+	
 }
 
 public class Test104
@@ -132,6 +134,7 @@ public class Test104
 		RpsGame rg = new RpsGame();
 		int nan = rg.nansu();
 		rg.input();
-		rg.print(nan);
+		String result = rg.exec(nan);
+		rg.print(nan, result);
 	}
 }
