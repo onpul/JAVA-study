@@ -11,48 +11,61 @@
 //    데이터 복사 → 깊은 복사 → 실제 요소로 들어있는 값에 대한 복사로
 //                                원본을 수정해도 복사본에 영향을 미치지 않는 복사 방법.
 //-------------------------------------------------------------------------------------------------
-
 // 데이터 복사
 // - int 형 배열에 대한 깊은 의미의 복사를 처리하는
 //   메소드를 정의하는 형태로 실습
-
+//-------------------------------------------------------------------------------------------------
 public class Test099
 {
 	public static void main(String[] args)
 	{
-		int[] nums = {10, 20, 30, 40, 50}; //-- 배열 원본
+		int[] nums = {10, 20, 30, 40, 50};  //-- 배열 원본
 
-		int[] copys1 = nums; //(주소값 복사)
-        int[] copys2 = copyArray(nums);
+		int[] copys1 = nums;                //--얕은 의미의 배열 복사 수행
+		                                    // (주소값 복사)
 		
-		int[] copys3 = (int[])nums.clone;
-		int[] copys1Array(nums); // 같은 의미의 배열 복사 수행
-		                      // (사용자 정의 메소드 호출);
-		int[] copys2Array(nems);
-	}
-	num[1] = 2;
+		//① 메소드 만들어서 매개변수로 넣기
+        int[] copys2 = copyArray(nums);     //--깊은 의미의 배열 복사 수행
+											// (사용자 정의 메소드 호출)
+		                                    // 프리미티브 자료형 복사처럼
+											// 요소 하나하나를 복사해서
+											// 원본이 바뀌어도 여기는 바뀌지 않음
+											
+		//② 객체
+		int[] copys3 = (int[])nums.clone(); // (자바 제공 → clone() 메소드)
+
+	
+	// 원본 배열 요소의 수정 발생~!!!
+	nums[1] = 2;           // nums는 객체이기 때문에
+	                       // nums.length 사용 가능
+						   // nums.clone();는 객체와 설계도
+						   // nums.clone();는 객체를 반환 check~!! 자바한테 제공받은 것
 
 	// 결과 확인
 	for (int i=0; i<nums.length; i++)
 	{
-		System.out.printf("%4d%", nums[i]);
+		System.out.printf("%4d", nums[i]);
 	}
 	System.out.println();
+
 	for (int i=0; i<copys1.length; i++)
 	{
-		System.out.printf("%4d%", copys1[i]);
+		System.out.printf("%4d", copys1[i]);
 	}
 	System.out.println();
+
 	for (int i=0; i<copys2.length; i++)
 	{
-		System.out.printf("%4d%", copys2[i]);
+		System.out.printf("%4d", copys2[i]);
 	}
 	System.out.println();
-	for (int i=0; i<copys23.length; i++)
+
+	for (int i=0; i<copys3.length; i++)
 	{
-		System.out.printf("%4d%", copys3[i]);
+		System.out.printf("%4d", copys3[i]);
 	}
 	System.out.println();
+	}
 
 	// 매개변수로 int 배열 타입을 넘겨받아
 	// 이를 복사한 후
@@ -67,7 +80,7 @@ public class Test099
 	
 		//각각의 원본 배열(os)에 담겨있는 요소들을 복사 배열(temp)에 담아내기
 		// temp = os;
-		for (int i=0; i<os.lenght; i++)
+		for (int i=0; i<os.length; i++)
 		{
 			temp[i] = os[i];
 		}
@@ -76,3 +89,11 @@ public class Test099
 		return temp;
 	}
 }
+// 실행 결과
+/*
+  10   2  30  40  50
+  10   2  30  40  50
+  10  20  30  40  50
+  10  20  30  40  50
+계속하려면 아무 키나 누르십시오 . . .
+*/
