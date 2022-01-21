@@ -231,7 +231,7 @@ class WeekDay
 	// 메소드 정의 → 기능 : 결과 출력하기
 	public void print(String day)
 	{
-		System.out.printf(">> %d년 %d월 %d일 → %s요일\n", y, m, d);
+		System.out.printf(">> %d년 %d월 %d일 → %s요일\n",y ,m ,d ,day);
 	}	
 
 }
