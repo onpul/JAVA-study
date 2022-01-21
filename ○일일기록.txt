@@ -291,7 +291,5 @@ public        O             O               O               O
 #Test104
 #Test105 메소드 중복정의(Method Overloading), 메소드 오버로딩
 #Test106 메소드 중복정의(Method Overloading), 메소드 오버로딩
-
-
-
-
+#Test107 만년달력
+#Test108 주민등록번호 유효성 검사
