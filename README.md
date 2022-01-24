@@ -114,3 +114,8 @@ JAVA 실습 코드 정리
 | Test106 | 메소드 중복정의(Method Overloading), 메소드 오버로딩 |
 | Test107 | 만년달력 |
 | Test108 | 주민등록번호 유효성 검사 |
+| Test109 | 정렬(Sort) 알고리즘-선택정렬(Selection Sort) | 2022.01.24. 월 | |
+| Test110 | 정렬(Sort) 알고리즘-버블정렬(거품 정렬, Bubble Sort) | | |
+| Test111 | 정렬(Sort) 알고리즘-향상된 버블정렬(거품 정렬, Bubble Sort) | | |
+| Test112 | [과제] 정렬(Sort) 알고리즘 | | |
+| Test113 | 클래스 고급-상속 | | |
