@@ -111,22 +111,6 @@ public class Test117 extends SortInt117
 
 	static int[] data = {7, 10, 3, 8, 7};
 
-	@Override
-	protected void sorting()
-	{
-		for (i=0; i<data.length-1; i++)
-		{
-			for (j=i+1; j<data.length; j++)
-			{	
-				if (compare(i,j)==1)
-				{
-					swap(i,j);
-				}
-			}
-		}
-		
-	}
-
 	public static void main(String[] args)
 	{
 		System.out.print("Source Data : ");

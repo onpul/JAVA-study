@@ -17,8 +17,8 @@ public class Test070
 
 		// 지역 변수 n
 		int n;
-	
-		//-- 선언 후 초기화 과정을 거치지 않은 상태
+	    //-- 선언 후 초기화 과정을 거치지 않은 상태
+
 		System.out.println("n : " + n); 
 		//--> 컴파일 에러 발생
 		// variable n might not have been initialized

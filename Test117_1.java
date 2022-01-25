@@ -39,7 +39,7 @@
 */
 //-------------------------------------------------------------------------------------------------
 // 추상 클래스
-abstract class SortInt117
+abstract class SortInt117_1
 {
 	private int[] value;
 
@@ -89,7 +89,7 @@ abstract class SortInt117
 
 // SortInt117(추상 클래스)를 상속받은 클래스 → 일단은 추상 클래스
 // → 추상 메소드(sorting())를 Override → 일반 정상 클래스
-public abstract class Test117 extends SortInt117
+public class Test117_1 extends SortInt117_1
 {
 	/*
 	protected void sort(int[] value)
@@ -110,6 +110,22 @@ public abstract class Test117 extends SortInt117
 	int i, j;
 
 	static int[] data = {7, 10, 3, 8, 7};
+	
+	@Override
+	protected void sorting()
+	{
+		for (i=0; i<data.length-1; i++)
+		{
+			for (j=i+1; j<data.length; j++)
+			{	
+				if (compare(i,j)==1)
+				{
+					swap(i,j);
+				}
+			}
+		}
+		
+	}
 
 	public static void main(String[] args)
 	{
@@ -120,8 +136,8 @@ public abstract class Test117 extends SortInt117
 		}
 		System.out.println();
 
-		//Test117 ob = new Test117();
-		//ob.sort(data);
+		Test117_1 ob = new Test117_1();
+		ob.sort(data);
 
 		System.out.print("Sorted Data : ");
 		for (int n : data)
