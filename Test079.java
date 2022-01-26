@@ -3,8 +3,6 @@
 //-------------------------------------------------------------------------------------------------
 // »ý¼ºÀÚ(Constructor)
 
-// 
-
 public class Test079
 {
 	int val1;
@@ -56,13 +54,13 @@ public class Test079
 		System.out.println(ob1.val1 + ", " + ob1.val2);
 		//--==> 0, 0.0
 
-		System.out.println(ob2.val1 + ", " + ob1.val2);
+		System.out.println(ob2.val1 + ", " + ob2.val2);
 		//--==> 4, 0.0
 
-		System.out.println(ob3.val1 + ", " + ob1.val2);
+		System.out.println(ob3.val1 + ", " + ob3.val2);
 		//--==> 0, 4.0
 
-		System.out.println(ob4.val1 + ", " + ob1.val2);
+		System.out.println(ob4.val1 + ", " + ob4.val2);
 		//--==> 4, 4.0
 	}
 }

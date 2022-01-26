@@ -24,7 +24,7 @@ public class Test102
 
 	int b = 20;        //-- non-static변수(인스턴스 변수, instance 변수, 동적변수)
 
-	void write()       //-- -- non-static메소드(인스턴스 메소드, instance 메소드, 동적메소드)
+	void write()       //-- non-static메소드(인스턴스 메소드, instance 메소드, 동적메소드)
 	{
 		System.out.println("클래스   변수 a : " + a);
 		System.out.println("인스턴스 변수 b : " + b);
@@ -34,8 +34,15 @@ public class Test102
 	{
 		System.out.println("클래스   변수 a : " + a);
 		//System.out.println("인스턴스 변수 b : " + b);
-		//--==> 에러 발생(컴파일 에러)
+		//--==>> 에러 발생(컴파일 에러)
+		//--==>> 인스턴스 변수는 클래스 메소드에서 접근할 수 없다.
 	}
+
+
+	// static은 형, 그전에 non-static은 없을 수도 있다.
+	// write()는 print()를 아무때나 부를 수 있다.
+	// print()는 write()를 불러서 쓸 수 없다!!!
+	// static끼리도 탄생시점이 같아서 부를 수 있다.
 
 	public static void main(String[] args)
 	{
@@ -60,8 +67,12 @@ public class Test102
 
 		//System.out.println("main() → 인스턴스 변수 b : " + b);
 		//--==> 에러 발생(컴파일 에러)
+		// 인스턴스 변수는 생성된 인스턴스를 통해서만 접근이 가능
+		// static main()이 탄생해도, 인스턴스 변수는 탄생 안한다.
+
 		//System.out.println("main() → 인스턴스 변수 b : " + Test102.b);
 		//--==> 에러 발생(컴파일 에러)
+		// 클래스명.인스턴스변수로 해도 안 된다.
 
 		//Test102.write();
 		//--==> 에러 발생(컴파일 에러)
@@ -70,9 +81,11 @@ public class Test102
 
 		// Test102 클래스 기반 인스턴스 생성
 		Test102 ob = new Test102();
+		// 인스턴스 변수는 생성된 인스턴스를 통해서만 접근이 가능!!!
 
 		//System.out.println("main() → 인스턴스 변수 b : " + b);
 		//--==> 에러 발생(컴파일 에러)
+		// 직접 접근은 안 된다.
 
 		// 생성된 인스턴스를 통한 인스턴스 변수 접근
 		System.out.println("main() → 인스턴스 변수 b : " + ob.b);
@@ -121,14 +134,14 @@ public class Test102
 		System.out.println("ob2 확인 -------------------------");
 		ob2.write();
 		//--==> ob2 확인 -------------------------
-        // 클래스   변수 a : 10000 
-        // 인스턴스 변수 b : 20000
+        // 클래스   변수 a : 10000 -> 스테이플러 (공유)
+        // 인스턴스 변수 b : 20000 -> 딱풀 (객체전용변수)
 
 		System.out.println("ob 확인 --------------------------");
 		ob.write();
 		//--==> ob 확인 --------------------------
-        // 클래스   변수 a : 10000
-        // 인스턴스 변수 b : 20
+        // 클래스   변수 a : 10000 -> 스테이플러 (공유)
+        // 인스턴스 변수 b : 20    -> 딱풀 (객체전용변수)
 	}
 }
 // 사랑하는 딸

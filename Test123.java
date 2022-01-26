@@ -22,7 +22,6 @@
 
 // 계속하려면 . . .
 //-------------------------------------------------------------------------------------------------
-import java.util.Scanner;
 
 // 속성만 존재하는 클래스 → 자료형 활용
 class Record
@@ -46,90 +45,9 @@ class SungjukImpl implements Sungjuk
 	private int inwon;
 	private Record[] rec; // Record를 기반으로 생성된 객체만 담아낼 수 있는 배열 선언
 
-	@Override
-	public void set() //-- 인원 세팅
-	{
-		Scanner sc = new Scanner(System.in);
-
-		// 인원 입력 받기
-		do
-		{
-			System.out.print("인원 수 입력(1~10) : ");
-			inwon = sc.nextInt();
-		}
-		while (inwon<1 || inwon>10);
-		
-		// Record 클래스를 기반으로 생성된 인스턴스를 담을 수 있는 배열방을 inwon만큼 생성
-		rec = new Record[inwon];
-	}
-
-	@Override
-	public void input() //-- 데이터 입력
-	{
-		Scanner sc = new Scanner(System.in);
-	
-		for (int i=0; i<inwon; i++)
-		{
-			// Record 클래스 기반의 인스턴스 생성
-			rec[i] = new Record();
-			
-			// 학번 이름 입력
-			System.out.printf("%d번째 학생의 학번 이름 입력(공백 구분) : ", (i+1));
-			rec[i].hak = sc.next();
-			rec[i].name = sc.next();
-			
-			// 점수 입력
-			System.out.print("국어 영어 수학 점수 입력   (공백 구분) : ");
-			rec[i].kor = sc.nextInt();
-			rec[i].eng = sc.nextInt();
-			rec[i].mat = sc.nextInt();
-
-			// 총점 누적합
-			rec[i].tot = rec[i].kor + rec[i].eng + rec[i].mat;
-
-			// 평균
-			rec[i].avg = rec[i].tot / 3;
-		}
-	}
-
-	@Override
-	public void print() //-- 결과 출력
-	{
-		for (int i=0; i<rec.length; i++)
-		{
-			System.out.printf("%s %s   %d %d  %d   %d   %d%n"
-			, rec[i].hak, rec[i].name, rec[i].kor, rec[i].eng, rec[i].mat, rec[i].tot, rec[i].avg);
-			System.out.printf("                 %s  %s  %s%n", panjung(rec[i].kor),panjung(rec[i].eng),panjung(rec[i].mat));
-		}	
-	}
-
     // 내부적으로 등급에 대한 판정을 수행할 메소드
-	private String panjung(int score)
+	private String panjung()
 	{
-		String result = "판정 불가";
-
-		int s = score;
-
-		if (s>=90)
-		{
-			result = "수";
-		}
-		else if (s>=80)
-		{
-			result = "우";
-		}	
-		else if (s>=70)
-		{
-			result = "미";
-		}
-		else if (s>=60)
-		{
-			result = "양";
-		}
-		else 
-			result = "가";
-
-		return result;
 	}
 }
 
@@ -139,7 +57,6 @@ public class Test123
 	public static void main(String[] args)
 	{
 		Sungjuk ob;
-		ob = new SungjukImpl();
 		
 		// 문제 해결 과정에서 작성해야 할 ob 구성
 		ob.set();

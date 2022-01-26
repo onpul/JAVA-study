@@ -28,28 +28,36 @@ public class Test078
 		// ※ 생성자 내부에서 다른 생성자를 호출하는 것은 가능하다.
 		//    하지만, 생성자 내부에서 (다른 생성자가) 가장 먼저 실행되어야 한다.
 
-		//Test078(100);
+		//this.Test078(100); --(x)
+		//Test078(100); --(X)
 		this(100);
 
-		x = 10;
+		x = 10; //여기서 보이는 x는 전역변수 x 하나.
 		System.out.println("인자가 없는 생성자");
-		System.out.println("Test078이 갖고있는 x : " + this.x); //둘 다 가능
 		System.out.println("Test078이 갖고있는 x : " + x);
+		System.out.println("Test078이 갖고있는 x : " + this.x); //둘 다 가능	
 	}
 
+	// **이 부분 여러 번 보기**
 	Test078(int x)
 	{
-		// x = x; // 둘 다 지역변수 'x'
-		// 『this』
+		// x = x; // 둘 다 지역변수 ㄴㄴ
+		// 전역변수 x, 지역변수 x.
+
 		this.x = x;
+
+		// 앞에 건 전역 변수 x, 뒤에 건 매개변수로 받은 x(100)
+
 		//-- 논리적 해석 → Test078.x = x;
 		System.out.println("인자가 하나인 생성자");
+		System.out.println("Test078이 갖고있는 x : " + x);
 		System.out.println("Test078이 갖고있는 x : " + this.x); // Test078이 갖고 있는 x
 	}
 
 	public static void main(String[] args)
 	{
 		//Test078 클래스 기반 인스턴스 생성
+		
 		Test078 ob1 = new Test078();
 		Test078 ob2 = new Test078(100);
 
@@ -62,10 +70,12 @@ public class Test078
 /*
 인자가 하나인 생성자
 Test078이 갖고있는 x : 100
+Test078이 갖고있는 x : 100
 인자가 없는 생성자
 Test078이 갖고있는 x : 10
 Test078이 갖고있는 x : 10
 인자가 하나인 생성자
+Test078이 갖고있는 x : 100
 Test078이 갖고있는 x : 100
 
 main 에서 ob1.x : 10

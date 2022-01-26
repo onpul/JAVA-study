@@ -11,6 +11,8 @@
 //-------------------------------------------------------------------------------------------------
 
 // 주소값 복사
+// 얕은 복사
+// 원본과 복사본 둘 다 영향이 있음
 
 public class Test098
 {
@@ -31,16 +33,31 @@ public class Test098
 		nums[0] = 1000;                      //-- 1000 20 30 40 50
 		//-- 원본 배열 수정
 		
+
+
+		// nums 원본 배열
+		System.out.print("nums: ");
+		for (int i=0; i<nums.length; i++)
+		{
+			System.out.printf("%4d", nums[i]);
+		}
+		System.out.println();
+		//--==>> nums: 1000  20  30  40  50
+
+		// copys 복사본 배열
+		System.out.print("copys: ");
 		for (int i=0; i<copys.length; i++)
 		{
 			System.out.printf("%4d", copys[i]);
 		}
 		System.out.println();
+		//--==>> copys: 1000  20  30  40  50
 
 		System.out.println(temp); //--==> 10
 
 	}
 }
+//-------------------------------------------------------------------------------------------------
 // 실행 결과
 /*
 1000  20  30  40  50

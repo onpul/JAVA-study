@@ -44,7 +44,9 @@ interface Sungjuk
 class SungjukImpl implements Sungjuk
 {
 	private int inwon;
-	private Record[] rec; // Record를 기반으로 생성된 객체만 담아낼 수 있는 배열 선언
+	private Record[] rec; 
+	// Record를 기반으로 생성된 객체만 담아낼 수 있는 배열 선언
+	// Record 객체만 담을 수 있다고 선언
 
 	@Override
 	public void set() //-- 인원 세팅
@@ -63,6 +65,10 @@ class SungjukImpl implements Sungjuk
 		// 입력받은 inwon만큼 생성
 		rec = new Record[inwon];
 		// Record 클래스의 인스턴스를 생성한 거 아님!
+
+		// 배열 선언과 메모리 할당 예시
+		// int[] arr;
+		// arr = new int[10];
 	}
 
 	@Override
