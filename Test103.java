@@ -104,7 +104,6 @@ class Sungjuk
 			// check~!!!
 			// Record 클래스 기반의 인스턴스 생성!!
 			rec[i] = new Record();
-
 			System.out.printf("%d번째 학생의 이름 입력 : ", (i+1));
 			rec[i].name = sc.next();
 
