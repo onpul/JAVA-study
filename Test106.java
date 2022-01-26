@@ -10,7 +10,7 @@ public class Test106
 	{
 		print(3.14);
 
-		double result = print(3.14); // X 자바는 '=' 대입연산자의 오른쪽만 먼저 본다! 그러니 같다고 생각한다
+		//double result = print(3.14); // X 자바는 '=' 대입연산자의 오른쪽만 먼저 본다! 그러니 같다고 생각한다
 	}
 
 	public static void print() {}                         // O 메소드 이렇게 지정할 수 있음
