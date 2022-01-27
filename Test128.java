@@ -87,7 +87,7 @@ public class Test128 // extends Object
 		// 정의되어 있지 않은 메소드
 		//System.out.println(ob.test());
 		//--==>> 에러 발생(컴파일 에러)
-		//-- Test128 클래스에 toString() 메소드가
+		//-- Test128 클래스에 test() 메소드가
 		//   존재하지 않는 상황이기 때문에
 		//   에러가 발생하는 상황
 
