@@ -16,11 +16,11 @@ public class Test133
 		                  //-- 오토 박싱
 
 		int n = 300;
-		Integer wrapN = new Integer(n);
+		Integer wrapN = new Integer(n); // Integer 클래스 기반으로 인스턴스 생성
 		int n2 = wrapN;   //-- 오토 언박싱
 
 		float f = 300.3f;
-		Float wrapF = new Float(f); // 객체 생성
+		Float wrapF = new Float(f); // Float 클래스 기반으로 인스턴스 생성
 
 		System.out.println(wrapBi.toString());
 		System.out.println(wrapN.toString());
@@ -44,7 +44,7 @@ public class Test133
 		System.out.printf("ni : %3d\n", ni);
 		//--==>> ni :  12
 
-		ni = Integer.parseInt("0101", 2);      // 오버로딩
+		ni = Integer.parseInt("0101", 2); // 오버로딩
 		System.out.printf("ni : %3d\n", ni);
         //--==>> ni :   5
 

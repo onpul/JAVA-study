@@ -75,11 +75,11 @@ public class Test132
 	public static void main(String[] args)
 	{
 		int a = 10, b; // 초기화, 선언
-		Integer c; // 객체 c 선언
-		Object d;  // 객체 d 선언
+		Integer c; // Integer 클래스 타입의 객체 c 선언
+		Object d;  // Object 클래스 타입의 객체 d 선언
 
 		b = a;                 //-- int형 데이터(자료) → int형 변수
-		c = new Integer(0);
+		c = new Integer(0);    // Integer 클래스 기반으로 인스턴스 생성
 		// c = 0; (내부적 처리)
 
 		// ※ 레퍼런스 형(참조 타입)과 기본 자료형(기본 타입)은 호환되지 않는다.
