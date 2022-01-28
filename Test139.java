@@ -77,7 +77,7 @@ public class Test139
 		// ● 찾고자 하는 대상 문자열(s)에
 		//    『e』 문자열이 존재할까?
 		//    존재한다면 그 위치는 어떻게 될까?
-		//    (단, 뒤에서부터 감사)
+		//    (단, 뒤에서부터 검사)
 
 		// seoul korea
 		System.out.println(s.indexOf("e"));
