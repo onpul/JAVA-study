@@ -30,18 +30,11 @@
 
 import java.util.Scanner;
 
-class Data // 데이터만 담을 클래스
-{
-	// 변수 선언
-	String name; // 이름
-	int score; // 점수
-}
-
 class Setting // 출력 제외한 처리가 이루어질 클래스
 {
 	// 주요 변수
 	int inwon;
-	Data[][] arr; // 데이터 타입의 배열 arr 선언 -> 2차원 배열로 해보자
+	String[][] arr; // String 타입의 배열 arr 선언 -> 2차원 배열로 해보자
 
 	public void input() 
 	{
@@ -50,8 +43,8 @@ class Setting // 출력 제외한 처리가 이루어질 클래스
 		System.out.print("인원 수 입력 : ");
 		inwon = sc.nextInt();
 
-		arr = new Data[inwon][2]; // 데이터 타입의 배열 arr
-		                          // 행은 [inwon]만큼 열은 이름, 점수 담을 [2]칸
+		arr = new String[inwon][2]; // String 타입의 배열 arr
+		                            // 행은 [inwon]만큼 열은 이름, 점수 담을 [2]칸
 	}
 
 	public void info()
@@ -60,32 +53,48 @@ class Setting // 출력 제외한 처리가 이루어질 클래스
 
 		for (int i=0; i<inwon; i++)
 		{
-			arr[i] = new Data();
-
 			System.out.printf("이름 점수 입력(%d, 공백 구분) : ", (i+1));
-			arr[i][1].name = sc.next();
-			arr[i][2].score = sc.nextInt();
+			arr[i][0] = sc.next();
+			arr[i][1] = sc.next();
 		}
 	}
 
 	public void print()
 	{
 		System.out.println("------------------");
-		
+
+		// 향상된 버블 정렬 
 		boolean swap = false; // 스왑 여부
-		String temp;
+		String tmp;
 		
-
-		for (int i=1; i<arr.length; i++)           
-		{
-			
-		
-		}
-
-		// 출력
 		for (int i=0; i<arr.length; i++)
 		{
-			System.out.printf("%d등 %s %d%n", (i+1), arr[i].name, arr[i].score);
+			for (int j=i; j<arr.length; j++)
+			{
+				if ( Integer.parseInt(arr[i][1]) < Integer.parseInt(arr[j][1]) )
+				{
+					tmp = arr[i][1];
+					arr[i][1] = arr[j][1];
+					arr[j][1] = tmp;
+
+					tmp = arr[i][0];
+					arr[i][0] = arr[j][0];
+					arr[j][0] = tmp;
+
+					swap = true;
+				}
+			}
+		}
+		
+		// 배열 출력
+		for (int i=0; i<arr.length; i++)
+		{
+			System.out.printf("%d등", (i+1));
+			for (int j=0; j<arr[i].length; j++)
+			{
+				System.out.printf("%5s", arr[i][j]);
+			}
+			System.out.println();
 		}
 
 		System.out.println("------------------");
@@ -104,3 +113,21 @@ public class Test112_1
 		set.print();
 	}
 }
+//-------------------------------------------------------------------------------------------------
+// 실행 결과
+/*
+인원 수 입력 : 5
+이름 점수 입력(1, 공백 구분) : 짱구 10
+이름 점수 입력(2, 공백 구분) : 훈이 30
+이름 점수 입력(3, 공백 구분) : 유리 50
+이름 점수 입력(4, 공백 구분) : 철수 70
+이름 점수 입력(5, 공백 구분) : 문정 90
+------------------
+1등   문정   90
+2등   철수   70
+3등   유리   50
+4등   훈이   30
+5등   짱구   10
+------------------
+계속하려면 아무 키나 누르십시오 . . .
+*/
