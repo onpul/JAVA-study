@@ -41,7 +41,7 @@ class Setting // 출력 제외한 처리가 이루어질 클래스
 {
 	// 주요 변수
 	int inwon;
-	Data[] arr; // 데이터 타입의 배열 arr 선언
+	Data[][] arr; // 데이터 타입의 배열 arr 선언 -> 2차원 배열로 해보자
 
 	public void input() 
 	{
@@ -50,7 +50,8 @@ class Setting // 출력 제외한 처리가 이루어질 클래스
 		System.out.print("인원 수 입력 : ");
 		inwon = sc.nextInt();
 
-		arr = new Data[inwon]; // 데이터 타입의 배열 arr에 inwon만큼 배열방 생성
+		arr = new Data[inwon][2]; // 데이터 타입의 배열 arr
+		                          // 행은 [inwon]만큼 열은 이름, 점수 담을 [2]칸
 	}
 
 	public void info()
@@ -62,8 +63,8 @@ class Setting // 출력 제외한 처리가 이루어질 클래스
 			arr[i] = new Data();
 
 			System.out.printf("이름 점수 입력(%d, 공백 구분) : ", (i+1));
-			arr[i].name = sc.next();
-			arr[i].score = sc.nextInt();
+			arr[i][1].name = sc.next();
+			arr[i][2].score = sc.nextInt();
 		}
 	}
 
@@ -74,33 +75,13 @@ class Setting // 출력 제외한 처리가 이루어질 클래스
 		boolean swap = false; // 스왑 여부
 		String temp;
 		
-		// 향상된 버블 정렬 
+
 		for (int i=1; i<arr.length; i++)           
 		{
-			for (int j=0; j<arr.length-i; j++)    
-			{
-				if (arr[j].score < arr[j+1].score) // Q. 같은 배열 방에 구성했는데 요소를 일일이 바꾸는 거 넘 비효율적임
-				{                                  //    --> 입력받는 자료가 많아지면 자료를 모두 하나씩 바꿔줘야 하잖어?
-					                               //    --> 2차원 배열 활용해서 한 줄에 담고 줄 자체를 정렬할 수 없나                               
-					// 점수 자리 바꾸기
-					arr[j].score = arr[j].score ^ arr[j+1].score;
-					arr[j+1].score = arr[j+1].score ^ arr[j].score;
-					arr[j].score = arr[j].score ^ arr[j+1].score;     
-					
-					// 이름 자리 바꾸기
-					temp = arr[j].name;
-					arr[j].name = arr[j+1].name;
-					arr[j+1].name = temp;
-
-					swap = true;
-				}	
-			}
-			if (swap == false)
-			{
-				break; // 멈춘다(+그리고 빠져나간다) → break를 끼고 있는 반복문 빠져나감
-			}
-		}
+			
 		
+		}
+
 		// 출력
 		for (int i=0; i<arr.length; i++)
 		{
@@ -111,10 +92,10 @@ class Setting // 출력 제외한 처리가 이루어질 클래스
 	}
 }
 
-public class Test112
+public class Test112_1
 {
 	public static void main(String[] args) 
-	{
+	{	
 		// Setting 클래스 인스턴스 생성
 		Setting set = new Setting();
 

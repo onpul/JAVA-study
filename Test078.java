@@ -30,12 +30,18 @@ public class Test078
 
 		//this.Test078(100); --(x)
 		//Test078(100); --(X)
-		this(100);
+		this(100); // 매개변수 있는 생성자 호출, 생성자 내부에서 가장 먼저 실행
 
 		x = 10; //여기서 보이는 x는 전역변수 x 하나.
 		System.out.println("인자가 없는 생성자");
 		System.out.println("Test078이 갖고있는 x : " + x);
-		System.out.println("Test078이 갖고있는 x : " + this.x); //둘 다 가능	
+		System.out.println("Test078이 갖고있는 x : " + this.x); //둘 다 가능
+		//                                             ---- Q. 이건 다른 생성자(밑에 매개변수 받는)를 부르는 건가?
+		//                                                  A. ㄴㄴㄴㄴ 얘는 this() 아니고 this! 자신을 참조하는 변수임
+		
+		// this와 this()
+		// 자바에는 this와 this() 키워드가 있는데 이 키워드는 전혀 다른 키워드이다.
+		// this는 인스턴스 자신을 가르키는 참조 변수이고 this()는 생성자를 뜻한다.
 	}
 
 	// **이 부분 여러 번 보기**
@@ -44,8 +50,7 @@ public class Test078
 		// x = x; // 둘 다 지역변수 ㄴㄴ
 		// 전역변수 x, 지역변수 x.
 
-		this.x = x;
-
+		this.x = x; // 전역 변수 x에 매개변수로 받은 int x인 100을 넣는다.
 		// 앞에 건 전역 변수 x, 뒤에 건 매개변수로 받은 x(100)
 
 		//-- 논리적 해석 → Test078.x = x;

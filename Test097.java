@@ -38,6 +38,10 @@ public class Test097
 		// 난수 발생 전용 객체가 필요하다.
 		// → 『java.util.Random』
 		Random rd = new Random();
+
+		// java.lang.Object       
+        //      java.util.Random
+		// 랜덤 클래스는 오브젝트의 자식이군...
 		
 		// ※ Random 클래스의 『nextInt()』 메소드
 		//    0 ~ 매개변수로 넘겨받은 정수 n-1 까지의 수 중

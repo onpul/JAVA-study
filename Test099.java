@@ -42,27 +42,31 @@ public class Test099
 							   // nums.clone();는 객체를 반환 check~!! 자바한테 제공받은 것
 
 		// 결과 확인
+		System.out.print("배열 원본    :");
 		for (int i=0; i<nums.length; i++) // 배열 원본
 		{
 			System.out.printf("%4d", nums[i]);
 		}
 		System.out.println();
 		//--==>>  10   2  30  40  50
-
+		
+		System.out.print("주소값 복사  :");
 		for (int i=0; i<copys1.length; i++) // 얕은 의미의 배열 복사 (주소값 복사)
 		{
 			System.out.printf("%4d", copys1[i]);
 		}
 		System.out.println();
 		//--==>>  10   2  30  40  50
-
+		
+		System.out.print("데이터 복사  :");
 		for (int i=0; i<copys2.length; i++) // 깊은 의미의 배열 복사 (데이터 복사)
 		{
 			System.out.printf("%4d", copys2[i]);
 		}
 		System.out.println();
 		//--==>>  10  20  30  40  50
-
+		
+		System.out.print("clone() 사용 :");
 		for (int i=0; i<copys3.length; i++) // 자바 제공 clone() 메소드
 		{
 			System.out.printf("%4d", copys3[i]);

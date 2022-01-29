@@ -36,6 +36,12 @@ public class Test102
 		//System.out.println("인스턴스 변수 b : " + b);
 		//--==>> 에러 발생(컴파일 에러)
 		//--==>> 인스턴스 변수는 클래스 메소드에서 접근할 수 없다.
+
+		//--==>> non-static variable b cannot be referenced from a static context
+
+		// Q. 왜 인스턴스 변수는 클래스 메소드에서 접근할 수 없을까?
+		// A. 클래스 메소드가 생성되었을 때 인스턴스 변수가 생성되었다는 보장이 없다.
+		//    ------------- 형이고          ------------- 동생이니까
 	}
 
 
