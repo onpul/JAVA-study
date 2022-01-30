@@ -63,23 +63,27 @@ class Setting // 출력 제외한 처리가 이루어질 클래스
 	{
 		System.out.println("------------------");
 
-		// 향상된 버블 정렬 
-		boolean swap = false; // 스왑 여부
+		boolean swap = false; 
 		String tmp;
 		
-		for (int i=0; i<arr.length; i++)
-		{
-			for (int j=i; j<arr.length; j++)
-			{
-				if ( Integer.parseInt(arr[i][1]) < Integer.parseInt(arr[j][1]) )
-				{
-					tmp = arr[i][1];
-					arr[i][1] = arr[j][1];
-					arr[j][1] = tmp;
-
-					tmp = arr[i][0];
-					arr[i][0] = arr[j][0];
-					arr[j][0] = tmp;
+		for (int i=1; i<arr.length; i++) // 라운드는 배열 크기 -1 만큼 진행됨(i=1부터)
+		{                                //         arr.length == 5이면, 1      2     3     4 
+			for (int j=0; j<arr.length-i; j++)//                         0123   012   01    0      
+			{                                 // 각 라운드별 비교횟수는 배열 크기의 현재 라운드 뺀 만큼 비교 
+				if ( Integer.parseInt(arr[j][1]) < Integer.parseInt(arr[j+1][1]) )
+				{//                       0                             1         --> 버블 정렬 비교
+				 //                       1                             2
+				 //                       2                             3
+				 //                       3                             4
+				    // 성적 값 교환
+					tmp = arr[j][1]; 
+					arr[j][1] = arr[j+1][1];
+					arr[j+1][1] = tmp;
+					
+					// 이름 값 교환 
+					tmp = arr[j][0];
+					arr[j][0] = arr[j+1][0];
+					arr[j+1][0] = tmp;
 
 					swap = true;
 				}
