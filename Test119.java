@@ -94,6 +94,7 @@ public class Test119
 	public static void main(String[] args)
 	{
 		//Demo ob = new Demo(); //-- 생성 불가~!!!
+		// 인터페이스도 추상클래스처럼 그 자체로는 인스턴스 생성 불가
 		
 		//DemoImpl ob = new DemoImpl();
 		//-- print() 메소드 재정의 후 가능~!!!
