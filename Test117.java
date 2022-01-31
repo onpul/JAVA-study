@@ -41,10 +41,10 @@
 // 추상 클래스
 abstract class SortInt117
 {
-	private int[] value;
+	private int[] value; // private : 같은 클래스 내에서만 접근 가능
 
-	protected void sort(int[] value)
-	{
+	protected void sort(int[] value) // protected : 상속 관계에 있는 자손클래스에서 접근 가능
+	{                                //             (같은 클래스, 같은 패키지, 자손 클래스)
 		this.value = value;
 		sorting();
 	}
