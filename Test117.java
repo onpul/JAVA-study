@@ -46,6 +46,7 @@ abstract class SortInt117
 	protected void sort(int[] value) // protected : 상속 관계에 있는 자손클래스에서 접근 가능
 	{                                //             (같은 클래스, 같은 패키지, 자손 클래스)
 		this.value = value;
+	//      전역변수, 매개변수
 		sorting();
 	}
 
