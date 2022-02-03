@@ -102,6 +102,7 @@ public class Test119
 		//DemoImpl obTemp = new DemoImpl(); // 가능
 		//Demo ob = (Demo)obTemp; // 가능
 		//Demo ob = obTemp; // 가능
+		// Q. 위 두 줄 왜 가능?
 
 		// ● 업 캐스팅
 		// 인터페이스 객체는 상위 객체

@@ -144,3 +144,10 @@ JAVA 실습 코드 정리
 | Test136 | 자바의 주요(중요) 클래스-Wrapper 클래스 | | |
 | Test137 | 자바의 주요(중요) 클래스-Wrapper 클래스 | | |
 | Test138 | 자바의 주요(중요) 클래스-String 클래스 | | |
+| Test139 | 자바의 주요(중요) 클래스-String 클래스 | | |
+| Test140 | 자바의 주요(중요) 클래스-StringBuffer 클래스 | | |
+| Test141 | 자바의 주요(중요) 클래스-StringBuffer 클래스 | | |
+| Test142 | 자바의 주요(중요) 클래스-StringTokenizer 클래스 | 2022.02.03. 목 | |
+| Test143 | 자바의 주요(중요) 클래스-StringTokenizer 클래스 | | |
+| Test144 | 자바의 주요(중요) 클래스-Calendar 클래스 | | |
+| Test145 | 자바의 주요(중요) 클래스-Calendar 클래스 | | |
