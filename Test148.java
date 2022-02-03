@@ -34,17 +34,29 @@ class Lotto
 
 	public int pickNum() // 난수 발생할 메소드
 	{
-		return (int)(Math.random() * 6) + 1; // 1~45 사이 임의의 숫자 생성
+		return (int)(Math.random() * 45) + 1; // 1~45 사이 임의의 숫자 생성
 	}
 
 	public void setting() // 로또 번호 세팅할 메소드
 	{
 		lt = new int[6]; // 6개 로또 번호 들어갈 배열방 생성
-		boolean[] picked = new boolean[45];
+		boolean[] picked = new boolean[46];
 
 		for (int i=0; i<lt.length; i++) // 0  1  2  3  4  5
 		{
-			lt[i] = pickNum();
+			//lt[i] = pickNum();
+			while (true)
+			{
+				int temp = pickNum();
+
+				if (picked[temp] == false)
+				{
+					picked[temp] = true;
+					lt[i] = pickNum();
+
+					break;
+				}
+			}
 		}
 		
 		// 오름차순 정렬 (선택 정렬)
