@@ -20,12 +20,202 @@
    getInstance() 메소드는 내부적으로 GregorianCalendar 객체를 생성하여
    돌려주기 때문에 GregorianCalendar 객체를 직접 생성하여 시간 정보를
    구할 수도 있다.
-*/											
+*/		
+
+// ○ 실습 문제
+//    사용자로부터 연, 월을 입력받아
+//    달력을 그려주는(출력하는) 프로그램을 구현한다.
+//    단, 만년달력이 아니라 Calendar 클래스를 활용하여 작성할 수 있도록 한다.
+//    『getActualMaximum()』 메소드 활용
+
+//    실행 예)
+//    연도 입력 : 0
+//    연도 입력 : 2022
+//    월 입력   : -1
+//    월 입력   : 16
+//    월 입력   : 7
+/*
+	   [ 2022년 7월 ]
+
+  일  월  화  수  목  금  토
+============================
+					   1   2
+   3   4   5   6   7   8   9
+  10  11  12  13  14  15  16
+  17  18  19  20  21  22  23
+  24  25  26  27  28  29  30
+  31
+============================
+계속하려면....
+*/
 //-------------------------------------------------------------------------------------------------
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 public class Test145
 {
-	public static void main(String[] args)
+	public static void main(String[] args) throws IOException
 	{
+		// 수업 풀이
 
+		// BufferedReader 클래스 기반 인스턴스 생성
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		// Calendar 클래스 기반 인스턴스 생성
+		Calendar cal = Calendar.getInstance();
+
+		// 주요 변수 선언
+		int y, m;   //-- 연, 월
+		int w;      //-- 요일
+		int i;      //-- 루프 변수
+
+		do
+		{
+			System.out.print("연도 입력 : ");
+			y = Integer.parseInt(br.readLine());
+		}
+		while (y<1);
+
+		do
+		{
+			System.out.print("월 입력   : ");
+			m = Integer.parseInt(br.readLine());
+		}
+		while (m<1 || m>12);
+
+		// 사용자로부터 입력받은 연(y), 월(m)을 이용하여
+		// 달력의 날짜 세팅
+		cal.set(y, m-1, 1);
+		//-- 월 구성 시 입력값(m)을 그대로 사용하는 것이 아니라
+		//   입력값에서 1을 뺀 값으로 월을 설정해야 한다.
+		//-- 일 구성 시 입력받은 연, 월에 해당하는 1일로 설정해야 한다.
+
+		// 세팅된 달력의 날짜로부터 요일 가져오기
+		w = cal.get(Calendar.DAY_OF_WEEK);
+
+		// 확인
+		//System.out.println(w);
+		//--==>>연도 입력 : 2022
+		//      월 입력   : 6
+		//      4 → 2022년 6월 기준 → 수요일 → 2022년 6월 1일 → 수요일
+
+		// 결과 출력 → 달력 그리기
+		System.out.println();
+		System.out.println("\t[ " + y + "년 " + m + "월 ]\n");
+		System.out.println("  일  월  화  수  목  금  토");
+		System.out.println("============================");
+		for (i=1; i<w; i++)
+		{
+			System.out.print("    "); // 공백 4칸 발생
+		}
+		// 테스트
+		//System.out.printf("%4d", 1);
+
+		// Calendar 클래스 『getActualMaximum()』 메소드 check~!!!
+		for (i=1; i<=cal.getActualMaximum(Calendar.DATE); i++) // 날짜에 대한 최대값 얻기
+		{
+			System.out.printf("%4d", i);
+			w++;             //-- 반복문을 수행하며 날짜가 증가할 때마다 
+			                 //   요일도 함께 증가할 수 있도록 처리
+			if (w%7==1)      //-- 증가한 요일이 일요일이 될 때마다
+			{                
+				System.out.println(); // 개행 후 출력될 수 있도록 처리
+			}
+		}
+		
+		if (w%7!=1)          //-- 일요일 개행이 적용되지 않았을 경우만
+		{                    //-- 개행
+			System.out.println();
+		}
+
+		System.out.println("============================");
+
+
+
+		// 내 풀이---------------------------------------------------------------------------------
+		/*
+		// 변수 선언
+		int y; // 입력받은 연도
+		int m; // 입력받은 월
+        
+		// BufferedReader 인스턴스 생성
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		// 연도 입력(1 이상)
+		do
+		{
+			System.out.print("연도 입력 : ");
+			y = Integer.parseInt(br.readLine());
+		}
+		while (y<1);
+
+		// 월 입력(1~12)
+		do
+		{
+			System.out.print("월 입력   : ");
+			m = Integer.parseInt(br.readLine());
+		}
+		while (m<1 || m>12);
+
+		// Calendar 인스턴스 생성
+		Calendar ca = new GregorianCalendar();
+		
+		// 달력의 날짜 세팅
+		ca.set(y, m-1, 1); // 달은 -1
+
+		int dayOfWeek = ca.get(Calendar.DAY_OF_WEEK);
+		System.out.println(dayOfWeek); // 테스트
+		//int maxDays = ca.getActualMaximum(Calendar.DAY_OF_MONTH);
+		// DAY_OF_MONTH랑 DATE는 동의어래 (api에서 봄)
+		int maxDays = ca.getActualMaximum(Calendar.DATE);
+		System.out.println(maxDays); // 테스트
+		
+		// 출력
+		System.out.printf("	[ %d년 %d월 ]%n%n", y, m);
+		System.out.println("  일  월  화  수  목  금  토");
+		System.out.println("============================");
+
+		// 달력 출력
+		for (int i=1; i<dayOfWeek; i++)
+		{
+			System.out.print("    "); // 시작 요일까지 공백 4개
+		} 
+
+		int tmp = dayOfWeek; // 임시 변수에 월의 시작 요일 넣기
+		for (int i=1; i<=maxDays; i++) // 1부터 월 마지막 날까지 출력
+		{
+			System.out.printf("%4d", i);
+
+			if (tmp%7==0) // 토요일이면 개행
+			{
+				System.out.println();
+			}
+			tmp++; // 개행한 후 1up
+		}
+
+		System.out.println("\n============================");	
+		*/
 	}
 }
+//-------------------------------------------------------------------------------------------------
+// 실행 결과
+/*
+연도 입력 : 2022
+월 입력   : 4
+
+        [ 2022년 4월 ]
+
+  일  월  화  수  목  금  토
+============================
+                       1   2
+   3   4   5   6   7   8   9
+  10  11  12  13  14  15  16
+  17  18  19  20  21  22  23
+  24  25  26  27  28  29  30
+============================
+계속하려면 아무 키나 누르십시오 . . .
+*/

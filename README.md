@@ -151,3 +151,6 @@ JAVA 실습 코드 정리
 | Test143 | 자바의 주요(중요) 클래스-StringTokenizer 클래스 | | |
 | Test144 | 자바의 주요(중요) 클래스-Calendar 클래스 | | |
 | Test145 | 자바의 주요(중요) 클래스-Calendar 클래스 | | |
+| Test146 | 자바의 주요(중요) 클래스-Calendar 클래스 | | |
+| Test147 | 자바의 주요(중요) 클래스-Math 클래스 | | |
+| Test148 | 자바의 주요(중요) 클래스-Math 클래스 | | |
