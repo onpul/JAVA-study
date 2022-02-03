@@ -34,7 +34,7 @@ class Lotto
 
 	public int pickNum() // 난수 발생할 메소드
 	{
-		return (int)(Math.random() * 45) + 1; // 1~45 사이 임의의 숫자 생성
+		return (int)(Math.random() * 6) + 1; // 1~45 사이 임의의 숫자 생성
 	}
 
 	public void setting() // 로또 번호 세팅할 메소드
@@ -52,7 +52,7 @@ class Lotto
 				if (picked[temp] == false)
 				{
 					picked[temp] = true;
-					lt[i] = pickNum();
+					lt[i] = temp;
 
 					break;
 				}
