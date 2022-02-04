@@ -96,11 +96,117 @@
    - SecurityException
      : 자바의 내부 보안 사항을 위반하였을 경우 발생하는 오류
 */
+// 예외 -> 냅다 던지거나, 잡아내거나
 //-------------------------------------------------------------------------------------------------
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+
 public class Test149
-{
-	public static void main(String[] args)
+{                                          // ① throws
+	public static void main(String[] args) //throws IOException
 	{
+		// BufferedReader 클래스 인스턴스 생성
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
+		// 주요 변수 선언
+		int a, b, c;
+		
+		// ② 
+		/*
+		try
+		{	
+			System.out.print("첫 번째 정수 입력 : ");
+			a = Integer.parseInt(br.readLine());
+			System.out.print("두 번째 정수 입력 : ");
+			b = Integer.parseInt(br.readLine());
+
+			c = a + b;
+
+			System.out.println("결과 : " + c);
+		}
+		catch (IOException e)
+		{
+			// IOException → checked exception
+			//-- 메소드를 정의하는 과정에서 throws 한 예외.
+			//   잡아내거나 던지지 않을 경우 컴파일 에러 발생.
+			System.out.println(e.toString());
+		}
+		// a 넣으면 에러 발생(런타임 에러)
+		*/
+
+		// ③
+		/*
+		try
+		{	
+			System.out.print("첫 번째 정수 입력 : ");
+			a = Integer.parseInt(br.readLine());
+			System.out.print("두 번째 정수 입력 : ");
+			b = Integer.parseInt(br.readLine());
+
+			c = a + b;
+
+			System.out.println("결과 : " + c);
+		}
+		catch (IOException e1)
+		{
+			// IOException → checked exception
+			//-- 메소드를 정의하는 과정에서 throws 한 예외.
+			//   잡아내거나 던지지 않을 경우 컴파일 에러 발생.
+			System.out.println(e1.toString());
+		}
+		catch (NumberFormatException e2)
+		{
+			// NumberFormatException → unchecked exception
+			//-- 런타임 시 발생할 수 있는 예외로
+			//   반드실 던질 필요도, 잡아낼 필요도 없다.
+			System.out.println(e2.toString()); //--==>> java.lang.NumberFormatException: For input string: "a"
+			System.out.println("숫자 형태의 데이터를 입력해야 합니다."); //--==>> 숫자 형태의 데이터를 입력해야 합니다.
+		}
+		*/
+		
+		// ④
+		/*
+		try
+		{	
+			System.out.print("첫 번째 정수 입력 : ");
+			a = Integer.parseInt(br.readLine());
+			System.out.print("두 번째 정수 입력 : ");
+			b = Integer.parseInt(br.readLine());
+
+			c = a + b;
+
+			System.out.println("결과 : " + c);
+		}
+		catch (Exception e)
+		{
+			System.out.println(e.toString());
+			System.out.println(e.getMessage());
+			System.out.println("printStackTrace...");
+			e.printStackTrace();
+		}
+		*/
+
+		// etc...
+		try
+		{	
+			System.out.print("첫 번째 정수 입력 : ");
+			a = Integer.parseInt(br.readLine());
+			System.out.print("두 번째 정수 입력 : ");
+			b = Integer.parseInt(br.readLine());
+
+			c = a + b;
+
+			System.out.println("결과 : " + c);
+		}
+		catch (Exception e)
+		{
+			System.out.println(e.toString());
+		}
+		finally // 예외 여부 상관없이 무조건 사용자와 만나는 구문 구성
+		{
+			// 예외가 발생하거나 발생하지 않거나 언제나 실행되는 영역
+			System.out.println("고생 많으셨습니다. 감사합니다.");
+		}
 	}
 }
