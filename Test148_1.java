@@ -28,63 +28,9 @@
 // 22 31 32 33 40 41
 // 계속하려면... 
 //-------------------------------------------------------------------------------------------------
-import java.util.Random;
-import java.util.Arrays;
-
 class Lotto
 {	
-	// 배열 변수 선언 및 메모리 할당 → 로또 번호를 담아둘 배열방 6칸
-	private int[] num;
-
-	// 생성자
-	Lotto()
-	{
-		num = new int[6];
-	}
-
-	// getter
-	public int[] getNum()
-	{
-		return num;
-	}
-
-	// 6개의 난수를 발생시키는 메소드 정의
-	public void start()
-	{
-		Random rd = new Random();
-		int n;
-		int cnt=0;
-		
-		jump:
-
-		while (cnt<6)              // 0 1 2 3 4 5
-		{
-			n = rd.nextInt(45)+1;  // 1 ~ 45       // ex) 10 12 13
-
-			for (int i=0; i<cnt; i++) 
-			{
-				if (num[i]==n)
-				{
-					continue jump;
-				}
-			}
-			
-			num[cnt++] = n;        // num[0] num[1] num[2] num[3] num[4] num[5]
-		}
-
-		// 정렬 메소드 호출
-		sorting();
-	}
-
-	// 정렬 메소드 정의
-	private void sorting()
-	{
-		Arrays.sort(num); // 배열 넘겨주면 알아서 다 해 줌
-	}
-
-	// 내 풀이-------------------------------------------------------------------------------------
-	/*
-	int[] lt; // 6개 로또 번호 들어갈 배열방 
+	int[] lt; // 6개 로또 번호 들어갈 배열
 
 	public int pickNum() // 난수 발생할 메소드
 	{
@@ -100,7 +46,6 @@ class Lotto
 
 		for (int i=0; i<lt.length; i++) // 0  1  2  3  4  5
 		{
-			//lt[i] = pickNum();
 			while (true) // 무한 반복
 			{
 				int temp = pickNum(); // 임시 변수 temp에 뽑은 난수 넣어놓고
@@ -139,33 +84,12 @@ class Lotto
 		}
 		System.out.println();
 	}
-	*/
 } // Lotto end
 
-public class Test148
+public class Test148_1
 {
 	public static void main(String[] args)
 	{
-		// 수업 풀이
-		// Lotto 클래스 기반 인스턴스 생성
-		Lotto lotto = new Lotto();
-
-		// 기본 5 게임
-		for (int i=1; i<=5; i++)
-		{
-			// 로또 게임 수행
-			lotto.start();
-
-			// 결과 출력
-			for (int n : lotto.getNum())
-			{
-				System.out.printf("%4d", n);
-			}
-			System.out.println();
-		}
-
-		// 내 풀이---------------------------------------------------------------------------------
-		/*
 		// Lotto 클래스 기반 인스턴스 생성
 		Lotto lotto = new Lotto();
 
@@ -179,16 +103,5 @@ public class Test148
 			// 결과 출력
 			lotto.print();
 		}
-		*/
 	}
 }
-//-------------------------------------------------------------------------------------------------
-// 실행 결과
-/*
-   6  15  17  19  23  28
-  15  22  26  31  36  43
-  26  29  36  39  40  44
-   9  15  16  19  38  45
-  21  23  24  27  39  40
-계속하려면 아무 키나 누르십시오 . . .
-*/
