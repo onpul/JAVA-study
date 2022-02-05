@@ -96,7 +96,7 @@ class Test
 	public static class StaticNested    // static 클래스 / 형
 	{
 		int c = 30; // 인스턴스 변수 but, write()가 탄생했으면 c도 탄생했기 때문에 접근 가능
-
+                    // Q. 왜...? 같은 클래스 내의 멤버는 같이 탄생하나?
 		void write() // 
 		{
 			System.out.println("write()...");

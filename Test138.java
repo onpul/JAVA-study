@@ -83,7 +83,7 @@ public class Test138
 		//       false
 
 		System.out.println(s1.equals(s2)); // 주소값이 아닌 값의 내용을 비교(String이 오버라이딩함)
-		System.out.println(s2.equals(s3));
+		System.out.println(s2.equals(s3)); // Object 클래스의 『equals()』 메소드는 객체의 주소를 비교
 		System.out.println(s3.equals(s4));
 		System.out.println(s4.equals(s1));
 		//--==>> true
