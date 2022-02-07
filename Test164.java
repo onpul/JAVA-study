@@ -71,31 +71,100 @@ public class Test164
 		// È«ÀºÇı 13¼¼ / ±èÁ¤¿ë 7¼¼ / ÀÌÀ±ÅÂ 78¼¼
 		// ´ã¾Æ³»±â
 		
+		// ¨ç
 		/*
-		MyData md = new MyData("È«ÀºÇı", 13);
-		v.add(md);
-		
-		MyData md1 = new MyData("±èÁ¤¿ë", 7);
-		v.add(md1);
+		MyData st1 = new MyData();
+		st1.setName("È«ÀºÇı");
+		st1.setAge(13);
+		v.add(st1);
 
-		MyData md2 = new MyData("ÀÌÀ±ÅÂ", 78);
-		v.add(md2);
+		MyData st2 = new MyData();
+		st2.setName("±èÁ¤¿ë");
+		st2.setAge(7);
+		v.add(st2);
+
+		MyData st3 = new MyData();
+		st3.setName("ÀÌÀ±ÅÂ");
+		st3.setAge(78);
+		v.add(st3);
 		*/
 
-		MyData md = new MyData();
-		md.setName("È«ÀºÇı");
-		md.setAge(13);
+		// ¨è
+		/*
+		MyData st1 = new MyData("È«ÀºÇı", 13);
+		v.add(st1);
+		MyData st2 = new MyData("±èÁ¤¿ë", 7);
+		v.add(st2);
+		MyData st3 = new MyData("ÀÌÀ±ÅÂ", 78);
+		v.add(st3);
+		*/
 
-		String name = md.getName();
-		int age = md.getAge();
-		
-		MyData md2 = new MyData(name, age);
-		v.add(md2);
+		// ¨é
+		v.add(new MyData("È«ÀºÇı", 13));
+		v.add(new MyData("±èÁ¤¿ë", 7));
+		v.add(new MyData("ÀÌÀ±ÅÂ", 78));
+
+		// º¤ÅÍ ÀÚ·á±¸Á¶ v¿¡ ´ã±ä ³»¿ë(¿ä¼Ò) ÀüÃ¼ Ãâ·ÂÇÏ±â
+		// ½ÇÇà ¿¹)
+		// ÀÌ¸§: È«ÀºÇı, ³ªÀÌ: 13
+		// ÀÌ¸§: ±èÁ¤¿ë, ³ªÀÌ: 7
+		// ÀÌ¸§: ÀÌÀ±ÅÂ, ³ªÀÌ: 78
 		
 		for (MyData m : v)
 		{
-			System.out.print(m + " ");
+			System.out.printf("ÀÌ¸§: %s, ³ªÀÌ: %d", m.getName(), m.getAge());
+			System.out.println();
+		}
+
+		// ³» Ç®ÀÌ
+		/*
+		// ¹æ¹ı 1
+		MyData md1 = new MyData("È«ÀºÇı", 13);
+		v.add(md1);
+		
+		MyData md2 = new MyData("±èÁ¤¿ë", 7);
+		v.add(md2);
+
+		MyData md3 = new MyData("ÀÌÀ±ÅÂ", 78);
+		v.add(md3);
+
+		// ¹æ¹ı 2
+		MyData md1 = new MyData();
+		md1.setName("È«ÀºÇı");
+		md1.setAge(13);
+		v.add(md1);
+
+		MyData md2 = new MyData();
+		md2.setName("±èÁ¤¿ë");
+		md2.setAge(7);
+		v.add(md2);
+
+		MyData md3 = new MyData();
+		md3.setName("ÀÌÀ±ÅÂ");
+		md3.setAge(78);
+		v.add(md3);
+		
+		// ¹æ¹ı 3
+		MyData md1 = new MyData();
+		md1.setName("È«ÀºÇı");
+		md1.setAge(13);
+		v.add(md1);
+		
+		MyData md2 = new MyData();
+		md2.setName("±èÁ¤¿ë");
+		md2.setAge(7);
+		v.add(md2);
+
+		MyData md3 = new MyData();
+		md3.setName("ÀÌÀ±ÅÂ");
+		md3.setAge(78);
+		v.add(md3);
+
+		for (MyData m : v)
+		{
+			System.out.printf("%s %d¼¼ / ", m.getName(), m.getAge());
 		}
 		System.out.println();
+		*/
 	}
 }
