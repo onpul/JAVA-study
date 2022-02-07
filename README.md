@@ -165,4 +165,8 @@ JAVA 실습 코드 정리
 | Test157 | 컬렉션 프레임워크(Collection Framework) | | |
 | Test158 | 컬렉션 프레임워크(Collection Framework) | | |
 | Test159 | 컬렉션 프레임워크(Collection Framework) | | |
-| Test160 | 컬렉션 프레임워크(Collection Framework) | | |
+| Test160 | 컬렉션 프레임워크(Collection Framework) | 2022.02.07. 월 | |
+| Test161 | 컬렉션 프레임워크(Collection Framework) | | |
+| Test162 | 컬렉션 프레임워크(Collection Framework) | | |
+| Test163 | 컬렉션 프레임워크(Collection Framework)-검색 및 삭제 | | |
+| Test164 | 컬렉션 프레임워크(Collection Framework) | | |
