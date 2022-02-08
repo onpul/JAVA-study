@@ -38,11 +38,13 @@ public class Test167
 {
 	public static void main(String[] args)
 	{
-		// ArrayList 자료구조 인스턴스 생성
-		//ArrayList<String> list = new ArrayList<String>();
-		//Vector<String> list = new Vector<String>();
-		//List<String> list = new Vector<String>();
+		// ArrayList 자료구조 인스턴스 생성                 // Q.
+		//ArrayList<String> list = new ArrayList<String>(); // ArrayList 타입의 list변수에 ArrayList 인스턴스 생성
+		//Vector<String> list = new Vector<String>();       // Vector타입의 list변수에 Vector 인스턴스 생성 / 업캐스팅?     
+		//List<String> list = new Vector<String>();         // List타입의 list변수에 Vector 인스턴스 생성 / 업캐스팅?
 		List<String> list1 = new ArrayList<String>();
+		// List는 인터페이스라서 인스턴스 생성이 안 된다.
+		// 그래서 implements한 클래스 기반으로 인스턴스를 생성해야 한다.
         
 		// list1 자료구조에 요소 추가 → add()
 		list1.add("쇼생크탈출");

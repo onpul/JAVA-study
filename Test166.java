@@ -13,7 +13,7 @@
    인터페이스라고 할 수 있다.
 
    - java.util.Enumeration<E> 인터페이스
-     : 이 인터페이스는 단지 두 개의 메소드만ㅇ르 제공하며
+     : 이 인터페이스는 단지 두 개의 메소드만을 제공하며
 	   『hasMoreElements()』 메소드를 통해
 	   인터페이스 안에 다음 요소가 있는지에 대한 질의를 한다.
 	   만약 true가 반환되었다면 다음 인덱스에 요소가 존재한다는 의미이며
@@ -25,7 +25,7 @@
 	          System.out.println(e.nextElement());
 		 }
 
-   - java.util.Enumeration<E> 인터페이스
+   - java.util.Iterator<E> 인터페이스
      : Enumeration 과의 차이점은 단지 『remove()』 메소드가 추가된 것 뿐이다.
 	   Iterator 가 가지고 있는 『hasNext()』와 『next()』 메소드는
 	   이름만 약간 다를 뿐 Enumeration 인터페이스가 가지고 있는
