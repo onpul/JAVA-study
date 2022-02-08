@@ -120,7 +120,26 @@ class MyComparator<T> implements Comparator<T>
 		GradeVO s2 = (GradeVO)o2;
 
 		// 학번 기준(오름차순)
-		return Integer.parseInt(s1.getHak()) - Integer.parseInt(s2.getHak());
+		//return Integer.parseInt(s1.getHak()) - Integer.parseInt(s2.getHak());
+		// return Integer.parseInt("2201123") - Integer.parseInt("2201124");
+		// return 2201123 - 2201124;                                         
+		// return -1
+		
+		// 학번 기준(내림차순)
+		//return Integer.parseInt(s2.getHak()) - Integer.parseInt(s1.getHak());
+
+		// 총점 기준(오름차순)
+		//return s1.getTot() - s2.getTot();
+		
+		// 총점 기준(내림차순)
+		//return s2.getTot() - s1.getTot();
+
+		// 이름 기준(오름차순)
+		// return 정수형;
+		//return s1.getName().compareTo(s2.getName());
+
+		// 이름 기준(내림차순)
+		return s2.getName().compareTo(s1.getName());
 	}
 }
 
@@ -179,11 +198,75 @@ public class Test171
 		// 위는 자료 구조 안에 객체를 채워넣은 것.
 		// 객체와 객체는 비교를 할 수 없음.
 		
+		/*
 		Iterator<GradeVO> it2 = set2.iterator();
-		while (it.hasNext())
+		while (it2.hasNext())
 		{
-			System.out.println(it2.next() + " ");
+			System.out.print(it2.next() + " ");
 		}
 		System.out.println();
+		*/
+		//--==>> GradeVO@15db9742 GradeVO@6d06d69c GradeVO@7852e922 GradeVO@4e25154f GradeVO@70dea4e
+
+		Iterator<GradeVO> it2 = set2.iterator();
+		while (it2.hasNext())
+		{
+			GradeVO vo = it2.next();
+			System.out.printf("%7s %7s %4d %4d %4d %6d\n", vo.getHak(), vo.getName(), vo.getKor(), 
+				                                           vo.getEng(), vo.getMat(), vo.getTot());
+		}
+		System.out.println();
+		//--==>>
+		/*
+		// 학번 기준(오름차순)
+		2201123     김민성   90   80   70    240
+		2201124     박현지   91   81   71    243
+		2201125     이윤태   98   79   77    254
+		2201135     김상기   99   82   72    253
+		2201141     정은정   96   86   76    258
+		*/
+		/*
+		// 학번 기준(내림차순)
+		2201141     정은정   96   86   76    258
+		2201135     김상기   99   82   72    253
+		2201125     이윤태   98   79   77    254
+		2201124     박현지   91   81   71    243
+		2201123     김민성   90   80   70    240
+		*/
+		/*
+		// 총점 기준(오름차순)
+		2201123     김민성   90   80   70    240
+		2201124     박현지   91   81   71    243
+		2201135     김상기   99   82   72    253
+		2201125     이윤태   98   79   77    254
+		2201141     정은정   96   86   76    258
+		*/
+		/*
+		// 총점 기준(내림차순)
+		2201141     정은정   96   86   76    258
+		2201125     이윤태   98   79   77    254
+		2201135     김상기   99   82   72    253
+		2201124     박현지   91   81   71    243
+		2201123     김민성   90   80   70    240
+		*/
+
+		/*
+		// 이름 기준(오름차순)
+		2201123     김민성   90   80   70    240
+		2201135     김상기   99   82   72    253
+		2201124     박현지   91   81   71    243
+		2201125     이윤태   98   79   77    254
+		2201141     정은정   96   86   76    258
+		*/
+		
+		/*
+		// 이름 기준(내림차순)
+		2201141     정은정   96   86   76    258
+		2201125     이윤태   98   79   77    254
+		2201124     박현지   91   81   71    243
+		2201135     김상기   99   82   72    253
+		2201123     김민성   90   80   70    240
+		*/
+	
 	}
 }
