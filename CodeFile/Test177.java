@@ -27,6 +27,6 @@ public class Test177
 
 		//    즉, 현재 구문에서는 『System.out.flush()』 구문은 생략할 수 없다.
 
-		// 자바의 out은 buffer 자동을 갖고 있다
+		// 자바의 out은 buffer를 자동으로 갖고 있다
 	}
 }
