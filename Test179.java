@@ -88,7 +88,7 @@
    java.io.ObjectInputStream
    ObjectInputStream 클래스는 ObjectOutputStream 클래스에 의해
    파일에 저장되어 있는 객체나 네트워크를 통해 전달된 객체의
-   직렬화를 히제하는 기능을 제공한다.
+   직렬화를 해제하는 기능을 제공한다.
    단, java.io.Seralizable 인터페이스와
    java.io.Externalizable 인터페이스를 지원해주는 객체에 대해서만
    사용이 가능하다.
@@ -105,10 +105,160 @@
 // 순서에 맞게 일련번호를 붙여 가면서 쪼개자  --> 객체 직렬화
 // 잘게 잘린 토막들을 다시 잘 합치는 거 --> 객체 역직렬화
 //-------------------------------------------------------------------------------------------------
+import java.io.File;
+import java.util.Hashtable;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.io.IOException;
+
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+
+import java.util.Enumeration;
+
 public class Test179
 {
-	public static void main(String[] args)
+	public static void main(String[] args) throws Exception
 	{
+		String appDir = System.getProperty("user.dir");
+        
+		// 테스트
+		//System.out.println(appDir);
+		//--==>> C:\JavaStudy
+
+		// 파일 객체 생성
+		File f0 = new File(appDir, "\\data\\test.ser");
+		//-- appDir → C:\JavaStudy
+		//-- appDir 위치를 기준으로(중심으로) "\\data\\test.ser" 를
+		//   구성하겠다는 의미
+		//   결과적으로 『C:\JavaStudy\data\test.ser』 구성.
+
+		// 테스트 ①
+		//System.out.println(f0.getParentFile().exists());
+		//--==>> false
+		//-- 『test.ser』 파일이 만들어질 디렉터리 경로가 구성되어 있지 않다.
+
+		// 테스트 ②
+		// 『C:\JavaStudy』 경로에 『data』 디렉터리 생성 후 다시 확인
+		//System.out.println(f0.getParentFile().exists());
+		//--==>> true
+		//-- 『test.ser』 파일이 만들어질 디렉터리 경로가 구성되어 있다.
 		
+		// 『test.ser』 파일이 만들어질 디렉터리 경로가 구성되어 있지 않다면
+		if (!f0.getParentFile().exists())
+		{
+			// 디렉터리를 만들겠다.
+			f0.getParentFile().mkdirs(); //메이크 디렉터리s
+		}
+		
+		// Hashtable 자료구조 인스턴스 생성
+		Hashtable<String, String> h1 = new Hashtable<String, String>();
+
+		// 생성한 h1 이라는 Hashtable 자료구조에 요소 추가
+		h1.put("2202091", "이호석");
+		h1.put("2202097", "김정용");
+		h1.put("2202090", "최문정");
+		h1.put("2202094", "최선하");
+		h1.put("2202099", "김태형");
+
+		// 테스트
+		System.out.println(h1.get("2202094"));
+		//--==>> 최선하
+
+
+		// 파일 전용 출력 스트림 생성(수도꼭지 열기)
+		FileOutputStream fos = new FileOutputStream(f0);
+		//-- 파일 전용 출력 스트림(물줄기)에
+		//   f0 라는 파일 객체를 띄우겠다...
+		//InputStreamReader isr = new InputStreamReader(System.in); // 이렇게 한 거랑 같음
+
+		// 객체 전용 출력 스트림 생성
+		ObjectOutputStream oos = new ObjectOutputStream(fos);
+		//-- 객체 전용 출력 스트림(물줄기)으로
+		//   fos 라는 파일 전용 출력 스트림을 감싸겠다. 
+		//BufferedReader br = new BufferedReader(isr); // 이렇게 한 거랑 같음
+
+		// 위의 line161 ~ 171 과 동일한 구문
+		//ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f0));
+
+		// line174 의 개념과 비교할 구문(구조적으로 동일한 구문)
+		//BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		// ※ ObjectOutputStream 클래스는
+		//    객체들을 출력하는 기능을 제공하는 클래스로
+		//    출력 스트림에 출력하기 전에
+		//    내부적으로 객체 직렬화를 수행하게 된다.
+		//    자바 기본형 데이터 또는 객체들을
+		//    파일에 저장하거나 네트워크를 통해 전달하기 위해
+		//    전달할 객체를 직렬화하는 기능을 제공하는 것이다.
+
+		oos.writeObject(h1);
+		//-- 생성된 스트림에 내보낼 객체를 기록
+		
+		oos.close();
+		//-- ObjectOutputStream 리소스 반납
+
+		fos.close();
+		//-- FileOutputStream 리소스 반납
+
+		// (객체를 직렬화하여 파일로) 내보내기 끝~!!! 
+		// data파일에 test.ser이 생김
+		//-----------------------------------------------------------------------------------------
+
+
+		// (객체를 직렬화하여 내보낸 파일) 읽어들이기 시작~!!!
+        
+		// f0 파일 객체가 존재한다면...
+		if (f0.exists())   
+		{
+			FileInputStream fis = new FileInputStream(f0);
+			ObjectInputStream ois = new ObjectInputStream(fis);
+
+			// ois(ObjectInputStream)로 부터 읽어들인 객체(Object)를
+			// 캐스팅(Hashtable) 하여
+			// h2 라는 Hashtable 자료구조에 담아내기
+			// Object obj = ois.readObject(); // 캐스팅 안 하면 이렇게도 가능
+			Hashtable h2 = (Hashtable)ois.readObject(); // 다운 캐스팅
+
+			ois.close();
+			//-- ois 반납 → ObjectInputStream 리소스 반납
+
+			fis.close();
+			//-- fis 반납 → FileInputStream 리소스 반납
+
+			//-------------------------------------------- 여기까지 수행하면 읽어들이는 작업 끝~!!!
+
+			// 읽어들인 h2 객체의 내용 확인
+
+			String key;
+			String value;
+
+			// ※ Iterator 사용할 수 없음~!!!
+
+			Enumeration e = h2.keys();
+			
+			while (e.hasMoreElements())
+			{
+				key = (String)e.nextElement();
+				//-- Hashtable 자료구조를 대상으로 key 값을 읽어들이는 과정
+
+				// 테스트
+				//System.out.println(key);
+
+				value = (String)h2.get(key);
+				//-- Hashtable 자료구조를 대상으로 key를 활용하여 value를 얻어내는 과정
+
+				System.out.println(key + " → " + value);
+			}
+
+		}
 	}
 }
+// 실행 결과
+/*
+2202091 → 이호석
+2202099 → 김태형
+2202090 → 최문정
+2202097 → 김정용
+2202094 → 최선하
+*/
