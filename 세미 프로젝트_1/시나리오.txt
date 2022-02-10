@@ -1,0 +1,72 @@
+git push 원격저장소명 브랜치이름
+
+git pull (지정한원격저장소이름) (받으려는 브랜치)
+
+
+
+
+시나리오
+
+git clone 
+
+git branch - m origin 자기이름
+
+- 로컬에서 자체적 변경
+GitTest2.java 변경
+
+
+git add 파일명.확장자
+git add .
+
+git commit -m "커밋 내용" 
+
+git push 원격저장소
+-- 에러
+
+git remote -v
+
+git push "원격저장소명" "보내려는 현재 브랜치 이름"
+
+gittest2 HelloWorld pm10 pull
+이거를 작업해서 pm11 push
+merge XX
+gittest2 HelloCh
+
+pm11:01 
+gittest2 Hello Mj 
+
+merge request
+
+
+원격에서 변경 후
+git pull 원격저장소명 현재브랜치
+git pull origin 자기브랜치이름
+
+git clone 주소
+
+
+로컬에서 변경
+원격에서도 변경
+
+
+
+git clone 주소          // 복사
+
+git add 파일이름.확장자
+or
+git add .         // 현재 디렉토리에서 변경된 모든 것 반영
+git commit -m "메세지 내용"
+
+git push 원격저장소이름 현재보내려는branch이름
+
+
+git pull 원격저장소이름 받으려는branch이름
+
+
+conflict 생기면
+생긴 파일 확인하고
+수정후
+git add 수정한파일
+git commit -m "내용"
+
+그 이상한화면 뜨면 사실 그냥 git clone이 나음.
