@@ -1,4 +1,4 @@
-# JAVA-study
+# JavaStudy
 JAVA 실습 코드 정리
 ## 파일 내용 
 
